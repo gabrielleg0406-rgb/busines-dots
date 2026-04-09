@@ -1,0 +1,31 @@
+kind = "web"
+previewPath = "/"
+title = "Nexus Hero"
+version = "1.0.0"
+id = "artifacts/nexus-hero"
+router = "path"
+
+[[integratedSkills]]
+name = "react-vite"
+version = "1.0.0"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 22711
+
+[services.development]
+run = "pnpm --filter @workspace/nexus-hero run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/nexus-hero", "run", "build" ]
+publicDir = "artifacts/nexus-hero/dist/public"
+serve = "static"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "22711"
+BASE_PATH = "/"
