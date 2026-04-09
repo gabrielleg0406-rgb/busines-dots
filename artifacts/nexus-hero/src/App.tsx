@@ -1,7 +1,7 @@
-import InteractiveHero from "@/components/ui/hero-section-nexus";
+import AGLabsPage from "@/components/ui/hero-section-nexus";
 
 function App() {
-  return <InteractiveHero />;
+  return <AGLabsPage />;
 }
 
 export default App;
