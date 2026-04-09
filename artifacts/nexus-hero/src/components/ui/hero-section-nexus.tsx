@@ -774,6 +774,43 @@ const AGLabsPage: React.FC = () => {
               </span>
             ))}
           </motion.div>
+
+          {/* Hero product image */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.96, y: 28 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: contentDelay + 0.65, ease: [0.16, 1, 0.3, 1] }}
+            className="mt-14 w-full max-w-5xl mx-auto px-2 sm:px-0"
+          >
+            {/* Browser chrome frame */}
+            <div className="rounded-xl overflow-hidden border border-gray-700/50 shadow-2xl shadow-black/60">
+              {/* Title bar */}
+              <div className="bg-[#1a1a1a] border-b border-gray-800/80 px-4 py-2.5 flex items-center gap-2">
+                <span className="w-2.5 h-2.5 rounded-full bg-red-500/70" />
+                <span className="w-2.5 h-2.5 rounded-full bg-yellow-500/70" />
+                <span className="w-2.5 h-2.5 rounded-full bg-green-500/70" />
+                <div className="flex-1 flex justify-center">
+                  <div className="bg-[#111] border border-gray-700/50 rounded-md px-3 py-0.5 text-[10px] text-gray-500 flex items-center gap-1.5">
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#0CF2A0]/60" />
+                    app.aglabs.ai — Dashboard
+                  </div>
+                </div>
+              </div>
+              {/* Screenshot */}
+              <div className="relative">
+                <img
+                  src="https://help.apple.com/assets/679AD2D1E874AD22770DE1E0/679AD2D56EA7B10C9E01288F/en_US/3d2b57c8027ae355aa44421899389008.png"
+                  alt="AG LABS — Painel de produtos e agentes de IA"
+                  width={1024}
+                  height={640}
+                  className="w-full h-auto object-cover"
+                  loading="lazy"
+                />
+                {/* Bottom fade to blend with page */}
+                <div className="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-[#0F0F0F] to-transparent pointer-events-none" />
+              </div>
+            </div>
+          </motion.div>
         </div>
       </section>
 
