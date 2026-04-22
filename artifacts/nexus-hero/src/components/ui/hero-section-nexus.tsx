@@ -799,11 +799,11 @@ const AGLabsPage: React.FC = () => {
               {/* Screenshot */}
               <div className="relative">
                 <img
-                  src="https://help.apple.com/assets/679AD2D1E874AD22770DE1E0/679AD2D56EA7B10C9E01288F/en_US/3d2b57c8027ae355aa44421899389008.png"
+                  src="https://placehold.co/1200x680/111111/1a1a1a?text=."
                   alt="AG LABS — Painel de produtos e agentes de IA"
-                  width={1024}
-                  height={640}
-                  className="w-full h-auto object-cover"
+                  width={1200}
+                  height={680}
+                  className="w-full h-auto object-cover hidden"
                   loading="lazy"
                 />
                 {/* Bottom fade to blend with page */}
