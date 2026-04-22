@@ -531,10 +531,10 @@ const linePath = chartPoints.map((v, i) => `${i === 0 ? "M" : "L"} ${toX(i).toFi
 const areaPath = `${linePath} L ${chartW} ${chartH} L 0 ${chartH} Z`;
 
 const agentRows = [
-  { name: "Agente Comercial", status: "Ativo", calls: "1.240", conv: "34%", color: "#0CF2A0" },
-  { name: "Suporte N1", status: "Ativo", calls: "3.870", conv: "91%", color: "#0CF2A0" },
-  { name: "Qualificador de Leads", status: "Pausado", calls: "680", conv: "27%", color: "#6b7280" },
-  { name: "Agente de Cobrança", status: "Ativo", calls: "410", conv: "58%", color: "#0CF2A0" },
+  { name: "Lorem Ipsum Agent", status: "Active", calls: "1.240", conv: "34%", color: "#0CF2A0" },
+  { name: "Dolor Sit Agent", status: "Active", calls: "3.870", conv: "91%", color: "#0CF2A0" },
+  { name: "Amet Consectetur", status: "Paused", calls: "680", conv: "27%", color: "#6b7280" },
+  { name: "Adipiscing Elit", status: "Active", calls: "410", conv: "58%", color: "#0CF2A0" },
 ];
 
 const DashboardMockup: React.FC = () => (
@@ -543,16 +543,16 @@ const DashboardMockup: React.FC = () => (
     {/* Sidebar */}
     <div className="flex flex-col gap-1 border-r border-gray-800/70 p-3 shrink-0" style={{ width: 160, background: "#111" }}>
       <div className="flex items-center gap-2 px-1 mb-3">
-        <span className="w-5 h-5 rounded bg-[#0CF2A0]/10 border border-[#0CF2A0]/30 flex items-center justify-center text-[#0CF2A0] text-[9px] font-bold">AG</span>
-        <span className="text-white font-semibold text-[11px]">AG LABS</span>
+        <span className="w-5 h-5 rounded bg-[#0CF2A0]/10 border border-[#0CF2A0]/30 flex items-center justify-center text-[#0CF2A0] text-[9px] font-bold">LI</span>
+        <span className="text-white font-semibold text-[11px]">Lorem Ipsum</span>
       </div>
       {[
-        { icon: "⬡", label: "Visão Geral", active: true },
-        { icon: "◈", label: "Agentes IA" },
-        { icon: "⟳", label: "Automações" },
-        { icon: "◎", label: "Integrações" },
-        { icon: "⟂", label: "Infraestrutura" },
-        { icon: "◫", label: "Relatórios" },
+        { icon: "⬡", label: "Overview", active: true },
+        { icon: "◈", label: "Lorem Ipsum" },
+        { icon: "⟳", label: "Dolor Amet" },
+        { icon: "◎", label: "Consectetur" },
+        { icon: "⟂", label: "Adipiscing" },
+        { icon: "◫", label: "Sed Eiusmod" },
       ].map(({ icon, label, active }) => (
         <div key={label} className={`flex items-center gap-2 px-2 py-1.5 rounded-md cursor-pointer transition-colors ${active ? "bg-[#0CF2A0]/10 text-[#0CF2A0]" : "text-gray-500 hover:text-gray-300"}`}>
           <span className="text-[10px]">{icon}</span>
@@ -576,22 +576,22 @@ const DashboardMockup: React.FC = () => (
       {/* Header row */}
       <div className="flex items-center justify-between mb-1">
         <div>
-          <div className="text-white font-semibold text-[12px]">Visão Geral</div>
-          <div className="text-gray-500 text-[9px]">Atualizado agora mesmo</div>
+          <div className="text-white font-semibold text-[12px]">Lorem Ipsum</div>
+          <div className="text-gray-500 text-[9px]">Updated just now</div>
         </div>
         <div className="flex items-center gap-2">
-          <div className="bg-[#161616] border border-gray-700/60 rounded px-2 py-1 text-gray-400 text-[9px]">Últimos 30 dias ▾</div>
-          <div className="bg-[#0CF2A0] text-[#0f0f0f] rounded px-2.5 py-1 text-[9px] font-semibold">+ Novo Agente</div>
+          <div className="bg-[#161616] border border-gray-700/60 rounded px-2 py-1 text-gray-400 text-[9px]">Last 30 days ▾</div>
+          <div className="bg-[#0CF2A0] text-[#0f0f0f] rounded px-2.5 py-1 text-[9px] font-semibold">+ Lorem Ipsum</div>
         </div>
       </div>
 
       {/* Stat cards */}
       <div className="grid grid-cols-4 gap-2">
         {[
-          { label: "Interações totais", value: "48.302", delta: "+12%", up: true },
-          { label: "Agentes ativos", value: "7", delta: "+2", up: true },
-          { label: "Tempo médio de resp.", value: "1.4s", delta: "-0.3s", up: true },
-          { label: "Taxa de resolução", value: "87%", delta: "+5%", up: true },
+          { label: "Lorem ipsum total", value: "48.302", delta: "+12%", up: true },
+          { label: "Dolor sit amet", value: "7", delta: "+2", up: true },
+          { label: "Consectetur avg.", value: "1.4s", delta: "-0.3s", up: true },
+          { label: "Adipiscing rate", value: "87%", delta: "+5%", up: true },
         ].map(({ label, value, delta, up }) => (
           <div key={label} className="bg-[#161616] border border-gray-800/60 rounded-lg p-2.5 flex flex-col gap-1">
             <div className="text-gray-500 text-[9px]">{label}</div>
@@ -607,7 +607,7 @@ const DashboardMockup: React.FC = () => (
         {/* Chart */}
         <div className="col-span-3 bg-[#161616] border border-gray-800/60 rounded-lg p-3 flex flex-col gap-2">
           <div className="flex items-center justify-between">
-            <div className="text-gray-300 text-[10px] font-medium">Interações por dia</div>
+            <div className="text-gray-300 text-[10px] font-medium">Lorem ipsum per day</div>
             <div className="flex gap-1">
               {["1S","1M","3M"].map((t, i) => (
                 <span key={t} className={`text-[8px] px-1.5 py-0.5 rounded ${i === 1 ? "bg-[#0CF2A0]/10 text-[#0CF2A0]" : "text-gray-600"}`}>{t}</span>
@@ -638,7 +638,7 @@ const DashboardMockup: React.FC = () => (
 
         {/* Agents list */}
         <div className="col-span-2 bg-[#161616] border border-gray-800/60 rounded-lg p-3 flex flex-col gap-2">
-          <div className="text-gray-300 text-[10px] font-medium mb-1">Agentes em execução</div>
+          <div className="text-gray-300 text-[10px] font-medium mb-1">Lorem ipsum running</div>
           {agentRows.map(({ name, status, calls, conv, color }) => (
             <div key={name} className="flex items-center gap-2 py-1.5 border-b border-gray-800/40 last:border-0">
               <span className="w-1.5 h-1.5 rounded-full flex-shrink-0" style={{ background: color }} />
@@ -689,33 +689,33 @@ const AGLabsPage: React.FC = () => {
   const pillarCards = [
     {
       icon: "🧩",
-      title: "Infraestrutura de IA",
-      description: "Construímos a base sólida para que sua empresa opere com IA de ponta a ponta.",
-      items: ["Arquitetura de sistemas", "Banco de dados vetorial", "Orquestração de modelos"],
+      title: "Lorem Ipsum Dolor",
+      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt.",
+      items: ["Lorem ipsum dolor", "Consectetur adipiscing", "Sed do eiusmod"],
       delay: 0,
       accent: "#0CF2A0",
     },
     {
       icon: "🤖",
-      title: "Agentes Inteligentes",
-      description: "Agentes autônomos treinados para operar 24/7 em qualquer canal de comunicação.",
-      items: ["Atendimento ao cliente", "Prospecção e vendas", "Suporte técnico"],
+      title: "Amet Consectetur",
+      description: "Ut labore et dolore magna aliqua. Ut enim ad minim veniam quis nostrud exercitation.",
+      items: ["Ut labore et dolore", "Minim veniam quis", "Nostrud exercitation"],
       delay: 0.1,
       accent: "#38BDF8",
     },
     {
       icon: "⚙️",
-      title: "Automação",
-      description: "Eliminamos retrabalho e integramos sistemas para que seu time foque no que importa.",
-      items: ["Processos internos", "Integração de sistemas", "Fluxos inteligentes"],
+      title: "Adipiscing Elit",
+      description: "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat.",
+      items: ["Duis aute irure", "In reprehenderit", "Velit esse cillum"],
       delay: 0.2,
       accent: "#A78BFA",
     },
     {
       icon: "📈",
-      title: "Produtos & SaaS",
-      description: "Soluções proprietárias desenvolvidas para mercados específicos com IA embutida.",
-      items: ["Barber PRO", "APP AG LABS (mídia generativa)", "Agentes de IA · LPs & Sites"],
+      title: "Incididunt Labore",
+      description: "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit.",
+      items: ["Excepteur sint occaecat", "Non proident culpa", "Officia deserunt"],
       delay: 0.3,
       accent: "#FB923C",
     },
@@ -724,31 +724,31 @@ const AGLabsPage: React.FC = () => {
   const steps = [
     {
       step: 1,
-      title: "Diagnóstico do Negócio",
-      description: "Mapeamos seus processos, gargalos e oportunidades para entender onde a IA gera mais valor.",
+      title: "Lorem Ipsum Dolor",
+      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna.",
     },
     {
       step: 2,
-      title: "Arquitetura da Solução",
-      description: "Desenhamos a infraestrutura ideal: modelos, dados, integrações e agentes — sem over-engineering.",
+      title: "Consectetur Adipiscing",
+      description: "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
     },
     {
       step: 3,
-      title: "Implementação",
-      description: "Desenvolvemos e entregamos a solução em produção com deploys rápidos e iterativos.",
+      title: "Sed Do Eiusmod",
+      description: "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
     },
     {
       step: 4,
-      title: "Operação e Evolução",
-      description: "Monitoramos, refinamos e evoluímos continuamente. Sua IA aprende e escala com o negócio.",
+      title: "Ut Labore Dolore",
+      description: "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
     },
   ];
 
   const products = [
-    { name: "Barber PRO", tag: "SaaS", delay: 0 },
-    { name: "APP AG LABS", tag: "Mídia Generativa", delay: 0.1 },
-    { name: "Agentes de IA", tag: "Produto", delay: 0.2 },
-    { name: "LPs & Sites", tag: "Web", delay: 0.3 },
+    { name: "Lorem Ipsum", tag: "SaaS", delay: 0 },
+    { name: "Dolor Amet", tag: "Adipiscing", delay: 0.1 },
+    { name: "Consectetur", tag: "Elit", delay: 0.2 },
+    { name: "Sed Eiusmod", tag: "Web", delay: 0.3 },
   ];
 
   return (
@@ -771,11 +771,11 @@ const AGLabsPage: React.FC = () => {
                 <path d="M2 12L12 17L22 12" stroke="#0CF2A0" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"/>
               </svg>
             </div>
-            <span className="text-lg font-bold text-white tracking-tight">AG <span className="text-[#0CF2A0]">LABS</span></span>
+            <span className="text-lg font-bold text-white tracking-tight">LOREM <span className="text-[#0CF2A0]">IPSUM</span></span>
           </a>
 
           <div className="hidden md:flex items-center justify-center flex-grow space-x-7 px-4">
-            {["Infraestrutura", "Agentes", "Automação", "Produtos", "Como funciona"].map((item) => (
+            {["Lorem", "Ipsum", "Dolor", "Amet", "Consectetur"].map((item) => (
               <NavLink key={item} href={`#${item.toLowerCase().replace(' ', '-')}`}>{item}</NavLink>
             ))}
           </div>
@@ -788,7 +788,7 @@ const AGLabsPage: React.FC = () => {
               whileTap={{ scale: 0.97 }}
               transition={{ type: "spring", stiffness: 400, damping: 15 }}
             >
-              Falar com a equipe
+              Lorem Ipsum
             </motion.a>
             <motion.button
               className="md:hidden text-gray-300 hover:text-white"
@@ -809,12 +809,12 @@ const AGLabsPage: React.FC = () => {
               className="md:hidden absolute top-full left-0 right-0 bg-[#0F0F0F]/97 backdrop-blur-sm shadow-lg py-5 border-t border-gray-800/50"
             >
               <div className="flex flex-col items-center gap-4 px-6">
-                {["Infraestrutura", "Agentes", "Automação", "Produtos", "Como funciona"].map((item) => (
+                {["Lorem", "Ipsum", "Dolor", "Amet", "Consectetur"].map((item) => (
                   <NavLink key={item} href={`#${item.toLowerCase()}`} onClick={() => setIsMobileMenuOpen(false)}>{item}</NavLink>
                 ))}
                 <a href="#contato" onClick={() => setIsMobileMenuOpen(false)}
                   className="mt-2 bg-[#0CF2A0] text-[#0F0F0F] px-5 py-2 rounded-md text-sm font-semibold">
-                  Falar com a equipe
+                  Lorem Ipsum
                 </a>
               </div>
             </motion.div>
@@ -837,7 +837,7 @@ const AGLabsPage: React.FC = () => {
             className="mb-6"
           >
             <span className="bg-[#161616] border border-[#0CF2A0]/20 text-[#0CF2A0] px-4 py-1.5 rounded-full text-xs sm:text-sm font-medium">
-              Agência especializada em Inteligência Artificial
+              Lorem ipsum dolor sit amet consectetur adipiscing
             </span>
           </motion.div>
 
@@ -847,10 +847,10 @@ const AGLabsPage: React.FC = () => {
             transition={{ duration: 0.6, delay: contentDelay + 0.1 }}
             className="text-4xl sm:text-5xl lg:text-[68px] font-bold text-white leading-[1.1] max-w-4xl mb-5 tracking-tight"
           >
-            Transformamos negócios com{" "}
+            Lorem ipsum dolor sit{" "}
             <span className="inline-block overflow-hidden align-bottom" style={{ height: "1.15em" }}>
               <RotatingText
-                texts={["Agentes de IA", "Automação", "Infraestrutura", "Produtos SaaS"]}
+                texts={["Lorem Ipsum", "Dolor Amet", "Consectetur", "Adipiscing"]}
                 mainClassName="text-[#0CF2A0]"
                 staggerFrom="last"
                 initial={{ y: "-100%", opacity: 0 }}
@@ -871,7 +871,7 @@ const AGLabsPage: React.FC = () => {
             transition={{ duration: 0.5, delay: contentDelay + 0.25 }}
             className="text-base sm:text-lg lg:text-xl text-gray-400 max-w-2xl mx-auto mb-10 leading-relaxed"
           >
-            Da infraestrutura ao produto final — criamos soluções de IA que operam, escalam e evoluem com o seu negócio.
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
           </motion.p>
 
           <motion.div
@@ -887,7 +887,7 @@ const AGLabsPage: React.FC = () => {
               whileTap={{ scale: 0.97 }}
               transition={{ type: "spring", stiffness: 400, damping: 15 }}
             >
-              Começar agora <ChevronRightIcon />
+              Lorem Ipsum <ChevronRightIcon />
             </motion.a>
             <motion.a
               href="#como-funciona"
@@ -896,7 +896,7 @@ const AGLabsPage: React.FC = () => {
               whileTap={{ scale: 0.97 }}
               transition={{ type: "spring", stiffness: 400, damping: 15 }}
             >
-              Como funciona
+              Dolor Amet
             </motion.a>
           </motion.div>
 
@@ -906,7 +906,7 @@ const AGLabsPage: React.FC = () => {
             transition={{ duration: 0.5, delay: contentDelay + 0.5 }}
             className="mt-12 flex flex-wrap items-center justify-center gap-6 text-xs text-gray-500"
           >
-            {["Infraestrutura de IA", "Agentes 24/7", "Automação inteligente", "Produtos SaaS"].map((tag, i) => (
+            {["Lorem ipsum", "Dolor sit amet", "Consectetur elit", "Adipiscing sed"].map((tag, i) => (
               <span key={i} className="flex items-center gap-1.5">
                 <span className="w-1 h-1 rounded-full bg-[#0CF2A0]" />
                 {tag}
@@ -931,7 +931,7 @@ const AGLabsPage: React.FC = () => {
                 <div className="flex-1 flex justify-center">
                   <div className="bg-[#111] border border-gray-700/50 rounded-md px-3 py-0.5 text-[10px] text-gray-500 flex items-center gap-1.5">
                     <span className="w-1.5 h-1.5 rounded-full bg-[#0CF2A0]/60" />
-                    app.aglabs.ai — Dashboard
+                    app.lorem.ipsum — Dashboard
                   </div>
                 </div>
               </div>
@@ -949,12 +949,12 @@ const AGLabsPage: React.FC = () => {
       <section id="infraestrutura" className="relative py-24 px-4 sm:px-6 lg:px-10">
         <div className="max-w-screen-xl mx-auto">
           <FadeInSection className="text-center mb-14">
-            <span className="text-[#0CF2A0] text-xs font-semibold uppercase tracking-widest mb-3 block">Nossos Pilares</span>
+            <span className="text-[#0CF2A0] text-xs font-semibold uppercase tracking-widest mb-3 block">Lorem Ipsum</span>
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4 tracking-tight">
-              4 pilares que sustentam<br className="hidden sm:block" /> a sua transformação
+              Lorem ipsum dolor sit<br className="hidden sm:block" /> amet consectetur
             </h2>
             <p className="text-gray-400 max-w-xl mx-auto text-base leading-relaxed">
-              Cada pilar é uma área de especialização profunda. Juntos, formam um ecossistema completo de IA para o seu negócio.
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna.
             </p>
           </FadeInSection>
 
@@ -974,12 +974,12 @@ const AGLabsPage: React.FC = () => {
         <div className="max-w-screen-xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-16 items-start">
             <FadeInSection>
-              <span className="text-[#0CF2A0] text-xs font-semibold uppercase tracking-widest mb-3 block">Processo</span>
+              <span className="text-[#0CF2A0] text-xs font-semibold uppercase tracking-widest mb-3 block">Dolor Amet</span>
               <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-5 tracking-tight leading-tight">
-                Do diagnóstico<br />à operação
+                Lorem ipsum<br />dolor amet
               </h2>
               <p className="text-gray-400 text-base leading-relaxed mb-8">
-                Um processo estruturado, sem surpresas. Trabalhamos lado a lado com seu time em cada etapa para garantir que a IA entregue resultado real.
+                Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat duis aute irure.
               </p>
               <motion.a
                 href="#contato"
@@ -988,7 +988,7 @@ const AGLabsPage: React.FC = () => {
                 whileTap={{ scale: 0.97 }}
                 transition={{ type: "spring", stiffness: 400, damping: 15 }}
               >
-                Agendar diagnóstico <ChevronRightIcon />
+                Lorem consectetur <ChevronRightIcon />
               </motion.a>
             </FadeInSection>
 
@@ -1005,12 +1005,12 @@ const AGLabsPage: React.FC = () => {
       <section id="produtos" className="relative py-24 px-4 sm:px-6 lg:px-10">
         <div className="max-w-screen-xl mx-auto">
           <FadeInSection className="text-center mb-14">
-            <span className="text-[#0CF2A0] text-xs font-semibold uppercase tracking-widest mb-3 block">Portfólio</span>
+            <span className="text-[#0CF2A0] text-xs font-semibold uppercase tracking-widest mb-3 block">Adipiscing</span>
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4 tracking-tight">
-              Produtos & SaaS
+              Lorem Ipsum Dolor
             </h2>
             <p className="text-gray-400 max-w-xl mx-auto text-base leading-relaxed">
-              Soluções proprietárias desenvolvidas pela AG LABS com IA embutida para mercados específicos.
+              Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
             </p>
           </FadeInSection>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
@@ -1029,22 +1029,22 @@ const AGLabsPage: React.FC = () => {
               <div className="absolute inset-0 pointer-events-none" style={{
                 background: 'radial-gradient(ellipse at 50% 0%, rgba(12,242,160,0.07) 0%, transparent 60%)'
               }} />
-              <span className="text-[#0CF2A0] text-xs font-semibold uppercase tracking-widest mb-4 block">Pronto para começar?</span>
+              <span className="text-[#0CF2A0] text-xs font-semibold uppercase tracking-widest mb-4 block">Lorem ipsum dolor?</span>
               <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-5 tracking-tight">
-                Vamos construir sua<br />IA juntos
+                Lorem ipsum sit<br />amet consectetur
               </h2>
               <p className="text-gray-400 max-w-lg mx-auto mb-8 text-base leading-relaxed">
-                Fale com nossa equipe e descubra como a AG LABS pode transformar seus processos, produtos e resultados com IA.
+                Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur excepteur sint.
               </p>
               <div className="flex flex-col sm:flex-row gap-3 items-center justify-center">
                 <motion.a
-                  href="mailto:contato@aglabs.ai"
+                  href="mailto:lorem@ipsum.dolor"
                   className="bg-[#0CF2A0] text-[#0F0F0F] px-8 py-3.5 rounded-lg text-sm font-semibold flex items-center gap-2 shadow-lg shadow-[#0CF2A0]/15"
                   whileHover={{ scale: 1.04, y: -2 }}
                   whileTap={{ scale: 0.97 }}
                   transition={{ type: "spring", stiffness: 400, damping: 15 }}
                 >
-                  Falar com a equipe <ChevronRightIcon />
+                  Lorem consectetur <ChevronRightIcon />
                 </motion.a>
               </div>
             </div>
@@ -1063,12 +1063,12 @@ const AGLabsPage: React.FC = () => {
                 <path d="M2 12L12 17L22 12" stroke="#0CF2A0" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"/>
               </svg>
             </div>
-            <span className="text-sm font-bold text-white">AG <span className="text-[#0CF2A0]">LABS</span></span>
+            <span className="text-sm font-bold text-white">LOREM <span className="text-[#0CF2A0]">IPSUM</span></span>
           </div>
-          <p className="text-xs text-gray-600">© {new Date().getFullYear()} AG LABS. Todos os direitos reservados.</p>
+          <p className="text-xs text-gray-600">© {new Date().getFullYear()} Lorem Ipsum. Dolor sit amet consectetur.</p>
           <div className="flex gap-5 text-xs text-gray-500">
-            <a href="#" className="hover:text-gray-300 transition-colors">Privacidade</a>
-            <a href="#" className="hover:text-gray-300 transition-colors">Termos</a>
+            <a href="#" className="hover:text-gray-300 transition-colors">Lorem</a>
+            <a href="#" className="hover:text-gray-300 transition-colors">Ipsum</a>
           </div>
         </div>
       </footer>
