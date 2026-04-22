@@ -520,6 +520,145 @@ const ProductBadge: React.FC<ProductBadgeProps> = ({ name, tag, delay }) => {
   );
 };
 
+// ─── Dashboard Mockup ─────────────────────────────────────────────────────────
+
+const chartPoints = [38, 52, 45, 68, 60, 78, 72, 88, 82, 95, 90, 100];
+const chartW = 340;
+const chartH = 80;
+const toX = (i: number) => (i / (chartPoints.length - 1)) * chartW;
+const toY = (v: number) => chartH - (v / 100) * chartH;
+const linePath = chartPoints.map((v, i) => `${i === 0 ? "M" : "L"} ${toX(i).toFixed(1)} ${toY(v).toFixed(1)}`).join(" ");
+const areaPath = `${linePath} L ${chartW} ${chartH} L 0 ${chartH} Z`;
+
+const agentRows = [
+  { name: "Agente Comercial", status: "Ativo", calls: "1.240", conv: "34%", color: "#0CF2A0" },
+  { name: "Suporte N1", status: "Ativo", calls: "3.870", conv: "91%", color: "#0CF2A0" },
+  { name: "Qualificador de Leads", status: "Pausado", calls: "680", conv: "27%", color: "#6b7280" },
+  { name: "Agente de Cobrança", status: "Ativo", calls: "410", conv: "58%", color: "#0CF2A0" },
+];
+
+const DashboardMockup: React.FC = () => (
+  <div className="flex w-full text-[11px] leading-tight select-none overflow-hidden" style={{ minHeight: 360, background: "#0c0c0c" }}>
+
+    {/* Sidebar */}
+    <div className="flex flex-col gap-1 border-r border-gray-800/70 p-3 shrink-0" style={{ width: 160, background: "#111" }}>
+      <div className="flex items-center gap-2 px-1 mb-3">
+        <span className="w-5 h-5 rounded bg-[#0CF2A0]/10 border border-[#0CF2A0]/30 flex items-center justify-center text-[#0CF2A0] text-[9px] font-bold">AG</span>
+        <span className="text-white font-semibold text-[11px]">AG LABS</span>
+      </div>
+      {[
+        { icon: "⬡", label: "Visão Geral", active: true },
+        { icon: "◈", label: "Agentes IA" },
+        { icon: "⟳", label: "Automações" },
+        { icon: "◎", label: "Integrações" },
+        { icon: "⟂", label: "Infraestrutura" },
+        { icon: "◫", label: "Relatórios" },
+      ].map(({ icon, label, active }) => (
+        <div key={label} className={`flex items-center gap-2 px-2 py-1.5 rounded-md cursor-pointer transition-colors ${active ? "bg-[#0CF2A0]/10 text-[#0CF2A0]" : "text-gray-500 hover:text-gray-300"}`}>
+          <span className="text-[10px]">{icon}</span>
+          <span className="text-[10px]">{label}</span>
+        </div>
+      ))}
+      <div className="mt-auto pt-4 border-t border-gray-800/60">
+        <div className="flex items-center gap-2 px-2 py-1.5">
+          <div className="w-5 h-5 rounded-full bg-gray-700 flex items-center justify-center text-[8px] text-gray-300">U</div>
+          <div>
+            <div className="text-gray-300 text-[9px] font-medium">Usuário</div>
+            <div className="text-gray-600 text-[8px]">Admin</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    {/* Main content */}
+    <div className="flex-1 p-4 flex flex-col gap-3 overflow-hidden">
+
+      {/* Header row */}
+      <div className="flex items-center justify-between mb-1">
+        <div>
+          <div className="text-white font-semibold text-[12px]">Visão Geral</div>
+          <div className="text-gray-500 text-[9px]">Atualizado agora mesmo</div>
+        </div>
+        <div className="flex items-center gap-2">
+          <div className="bg-[#161616] border border-gray-700/60 rounded px-2 py-1 text-gray-400 text-[9px]">Últimos 30 dias ▾</div>
+          <div className="bg-[#0CF2A0] text-[#0f0f0f] rounded px-2.5 py-1 text-[9px] font-semibold">+ Novo Agente</div>
+        </div>
+      </div>
+
+      {/* Stat cards */}
+      <div className="grid grid-cols-4 gap-2">
+        {[
+          { label: "Interações totais", value: "48.302", delta: "+12%", up: true },
+          { label: "Agentes ativos", value: "7", delta: "+2", up: true },
+          { label: "Tempo médio de resp.", value: "1.4s", delta: "-0.3s", up: true },
+          { label: "Taxa de resolução", value: "87%", delta: "+5%", up: true },
+        ].map(({ label, value, delta, up }) => (
+          <div key={label} className="bg-[#161616] border border-gray-800/60 rounded-lg p-2.5 flex flex-col gap-1">
+            <div className="text-gray-500 text-[9px]">{label}</div>
+            <div className="text-white font-bold text-[15px]">{value}</div>
+            <div className={`text-[9px] font-medium ${up ? "text-[#0CF2A0]" : "text-red-400"}`}>{delta} este mês</div>
+          </div>
+        ))}
+      </div>
+
+      {/* Chart + Agents row */}
+      <div className="grid grid-cols-5 gap-3 flex-1 min-h-0">
+
+        {/* Chart */}
+        <div className="col-span-3 bg-[#161616] border border-gray-800/60 rounded-lg p-3 flex flex-col gap-2">
+          <div className="flex items-center justify-between">
+            <div className="text-gray-300 text-[10px] font-medium">Interações por dia</div>
+            <div className="flex gap-1">
+              {["1S","1M","3M"].map((t, i) => (
+                <span key={t} className={`text-[8px] px-1.5 py-0.5 rounded ${i === 1 ? "bg-[#0CF2A0]/10 text-[#0CF2A0]" : "text-gray-600"}`}>{t}</span>
+              ))}
+            </div>
+          </div>
+          <div className="flex-1 flex items-end">
+            <svg viewBox={`0 0 ${chartW} ${chartH + 10}`} className="w-full h-full" preserveAspectRatio="none">
+              <defs>
+                <linearGradient id="chartGrad" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stopColor="#0CF2A0" stopOpacity="0.25" />
+                  <stop offset="100%" stopColor="#0CF2A0" stopOpacity="0" />
+                </linearGradient>
+              </defs>
+              <path d={areaPath} fill="url(#chartGrad)" />
+              <path d={linePath} fill="none" stroke="#0CF2A0" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+              {chartPoints.map((v, i) => (
+                i === chartPoints.length - 1 ? (
+                  <circle key={i} cx={toX(i)} cy={toY(v)} r="3" fill="#0CF2A0" stroke="#0c0c0c" strokeWidth="1.5" />
+                ) : null
+              ))}
+            </svg>
+          </div>
+          <div className="flex justify-between text-gray-600 text-[8px]">
+            {["Jan","Fev","Mar","Abr","Mai","Jun","Jul","Ago","Set","Out","Nov","Dez"].map(m => <span key={m}>{m}</span>)}
+          </div>
+        </div>
+
+        {/* Agents list */}
+        <div className="col-span-2 bg-[#161616] border border-gray-800/60 rounded-lg p-3 flex flex-col gap-2">
+          <div className="text-gray-300 text-[10px] font-medium mb-1">Agentes em execução</div>
+          {agentRows.map(({ name, status, calls, conv, color }) => (
+            <div key={name} className="flex items-center gap-2 py-1.5 border-b border-gray-800/40 last:border-0">
+              <span className="w-1.5 h-1.5 rounded-full flex-shrink-0" style={{ background: color }} />
+              <div className="flex-1 min-w-0">
+                <div className="text-gray-200 text-[9px] truncate">{name}</div>
+                <div className="text-gray-600 text-[8px]">{calls} interações</div>
+              </div>
+              <div className="text-right shrink-0">
+                <div className="text-[9px] font-semibold" style={{ color }}>{conv}</div>
+                <div className="text-[8px] text-gray-600">{status}</div>
+              </div>
+            </div>
+          ))}
+        </div>
+
+      </div>
+    </div>
+  </div>
+);
+
 // ─── Main Component ──────────────────────────────────────────────────────────
 
 const AGLabsPage: React.FC = () => {
@@ -796,18 +935,10 @@ const AGLabsPage: React.FC = () => {
                   </div>
                 </div>
               </div>
-              {/* Screenshot */}
-              <div className="relative">
-                <img
-                  src="https://placehold.co/1200x680/111111/1a1a1a?text=."
-                  alt="AG LABS — Painel de produtos e agentes de IA"
-                  width={1200}
-                  height={680}
-                  className="w-full h-auto object-cover hidden"
-                  loading="lazy"
-                />
-                {/* Bottom fade to blend with page */}
-                <div className="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-[#0F0F0F] to-transparent pointer-events-none" />
+              {/* Dashboard Mockup */}
+              <div className="relative bg-[#0f0f0f]">
+                <DashboardMockup />
+                <div className="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-[#0F0F0F] to-transparent pointer-events-none" />
               </div>
             </div>
           </motion.div>
